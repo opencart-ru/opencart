@@ -39,7 +39,7 @@ $response->addHeader('Content-Type: text/html; charset=UTF-8');
 $registry->set('response', $response);
 
 // Language
-$language = new Language('english');
+$language = new Language('russian');
 $language->load('default');
 $registry->set('language', $language);
 

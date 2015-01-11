@@ -34,10 +34,13 @@ class ModelToolImage extends Model {
 			}
 		}
 
+		$parts = explode('/', $new_image);
+		$new_image_url = implode('/', array_map('rawurlencode', $parts));
+
 		if ($this->request->server['HTTPS']) {
-			return $this->config->get('config_ssl') . 'image/' . $new_image;
+			return $this->config->get('config_ssl') . 'image/' . $new_image_url;
 		} else {
-			return $this->config->get('config_url') . 'image/' . $new_image;
+			return $this->config->get('config_url') . 'image/' . $new_image_url;
 		}
 	}
 }
